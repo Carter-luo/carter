@@ -1,261 +1,262 @@
-{ "editor.lineNumbers": "relative", //相对行号 
-"vim.easymotion": true,
-"vim.easymotionKeys": "hklyuiopnm,qwertzxcvbasdgjf;",
-"vim.easymotionJumpToAnywhereRegex": "\\b[A-Za-z0-9]|[A-Za-z0-9]\\b|_.|#.|[a-z][A-Z]",
-"vim.incsearch": true,
-"vim.useSystemClipboard": true, //系统剪切板
-"vim.useCtrlKeys": true, //使用vim 自带的Ctrl 
-"vim.hlsearch": true,
-"vim.foldfix": true, // 行间移动不影响折叠
-"vim.insertModeKeyBindings": [
-  {
-    "before": [
-      "j",
-      "j"
-    ],
-    "after": [
-      "<Esc>"
-    ]
-  },
-  {
-    "before": [
-      "j",
-      "k"
-    ],
-    "after": [
-      "<Esc>"
-    ]
+{
+  "editor.lineNumbers": "relative", //相对行号 
+  "vim.easymotion": true,
+  "vim.easymotionKeys": "hklyuiopnm,qwertzxcvbasdgjf;",
+  "vim.easymotionJumpToAnywhereRegex": "\\b[A-Za-z0-9]|[A-Za-z0-9]\\b|_.|#.|[a-z][A-Z]",
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true, //系统剪切板
+  "vim.useCtrlKeys": true, //使用vim 自带的Ctrl 
+  "vim.hlsearch": true,
+  "vim.foldfix": true, // 行间移动不影响折叠
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  //非递归 普通模式使用
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // undo 
+      "before": [
+        "u"
+      ],
+      "commands": [
+        "undo"
+      ],
+    },
+    {
+      //redo
+      "before": [
+        "<C-r>"
+      ],
+      "commands": [
+        "redo"
+      ],
+    },
+    {
+      // goto error
+      "before": [
+        "g",
+        "e"
+      ],
+      "commands": [
+        "editor.action.marker.nextInFiles"
+      ],
+    },
+    {
+      // old vim `ge` command
+      "before": [
+        "leader",
+        "g",
+        "e"
+      ],
+      "after": [
+        "g",
+        "e"
+      ],
+    },
+    {
+      // goto implementation
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.peekImplementation"
+      ],
+    },
+    {
+      // old vim `gi` command
+      "before": [
+        "leader",
+        "g",
+        "i"
+      ],
+      "after": [
+        "g",
+        "i"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      // goto word
+      "before": [
+        "g",
+        "w"
+      ],
+      "after": [
+        "y",
+        "i",
+        "w",
+        "/",
+        "<C-v>",
+        "<CR>"
+      ],
+    },
+    {
+      // old vim `gw` command
+      "before": [
+        "leader",
+        "g",
+        "w"
+      ],
+      "after": [
+        "g",
+        "w"
+      ],
+    },
+    {
+      // open extension side bar: bookmark
+      "before": [
+        "leader",
+        "x",
+        "b"
+      ],
+      "commands": [
+        "workbench.view.extension.bookmarks"
+      ],
+    },
+    {
+      // toggle easy motion
+      "before": [
+        "f"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "s"
+      ],
+    },
+    { // 在使用了 Bookmarks 插件的提前下
+      "before": [
+        "<leader>",
+        "m"
+      ],
+      "commands": [
+        "bookmarks.toggle"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "b"
+      ],
+      "commands": [
+        "bookmarks.list"
+      ]
+    },
+    {
+      // new J
+      "before": [
+        "J"
+      ],
+      "after": [
+        "g",
+        "T"
+      ]
+    },
+    {
+      // old J
+      "before": [
+        "leader",
+        "J"
+      ],
+      "after": [
+        "J"
+      ],
+    },
+    {
+      // new K
+      "before": [
+        "K"
+      ],
+      "after": [
+        "g",
+        "t"
+      ],
+    },
+    {
+      // old K
+      "before": [
+        "leader",
+        "K"
+      ],
+      "after": [
+        "K"
+      ],
+    },
+    {
+      // new H
+      "before": [
+        "H"
+      ],
+      "after": [
+        "^"
+      ],
+    },
+    {
+      // old H
+      "before": [
+        "leader",
+        "H"
+      ],
+      "after": [
+        "H"
+      ],
+    },
+    {
+      // new L
+      "before": [
+        "L"
+      ],
+      "after": [
+        "$"
+      ],
+    },
+    {
+      // old L
+      "before": [
+        "leader",
+        "L"
+      ],
+      "after": [
+        "L"
+      ],
+    }
+  ],
+  //递归这个配置选项是递归的，意味着按键绑定会在所有普通模式中生效，包括嵌套的内部模式（例如插入模式）。这样可以确保按键绑定在所有情况下都能正确触发。
+  "vim.normalModeKeyBindings": [],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    // "<C-n>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-p>": false,
   }
-],
-//非递归 普通模式使用
-"vim.normalModeKeyBindingsNonRecursive": [
-  {
-    // undo 
-    "before": [
-      "u"
-    ],
-    "commands": [
-      "undo"
-    ],
-  },
-  {
-    //redo
-    "before": [
-      "<C-r>"
-    ],
-    "commands": [
-      "redo"
-    ],
-  },
-  {
-    // goto error
-    "before": [
-      "g",
-      "e"
-    ],
-    "commands": [
-      "editor.action.marker.nextInFiles"
-    ],
-  },
-  {
-    // old vim `ge` command
-    "before": [
-      "leader",
-      "g",
-      "e"
-    ],
-    "after": [
-      "g",
-      "e"
-    ],
-  },
-  {
-    // goto implementation
-    "before": [
-      "g",
-      "i"
-    ],
-    "commands": [
-      "editor.action.peekImplementation"
-    ],
-  },
-  {
-    // old vim `gi` command
-    "before": [
-      "leader",
-      "g",
-      "i"
-    ],
-    "after": [
-      "g",
-      "i"
-    ],
-  },
-  {
-    "before": [
-      "<leader>",
-      "d"
-    ],
-    "after": [
-      "d",
-      "d"
-    ]
-  },
-  {
-    // goto word
-    "before": [
-      "g",
-      "w"
-    ],
-    "after": [
-      "y",
-      "i",
-      "w",
-      "/",
-      "<C-v>",
-      "<CR>"
-    ],
-  },
-  {
-    // old vim `gw` command
-    "before": [
-      "leader",
-      "g",
-      "w"
-    ],
-    "after": [
-      "g",
-      "w"
-    ],
-  },
-  {
-    // open extension side bar: bookmark
-    "before": [
-      "leader",
-      "x",
-      "b"
-    ],
-    "commands": [
-      "workbench.view.extension.bookmarks"
-    ],
-  },
-  {
-    // toggle easy motion
-    "before": [
-      "f"
-    ],
-    "after": [
-      "leader",
-      "leader",
-      "s"
-    ],
-  },
-  { // 在使用了 Bookmarks 插件的提前下
-    "before": [
-      "<leader>",
-      "m"
-    ],
-    "commands": [
-      "bookmarks.toggle"
-    ]
-  },
-  {
-    "before": [
-      "<leader>",
-      "b"
-    ],
-    "commands": [
-      "bookmarks.list"
-    ]
-  },
-  {
-    // new J
-    "before": [
-      "J"
-    ],
-    "after": [
-      "g",
-      "T"
-    ]
-  },
-  {
-    // old J
-    "before": [
-      "leader",
-      "J"
-    ],
-    "after": [
-      "J"
-    ],
-  },
-  {
-    // new K
-    "before": [
-      "K"
-    ],
-    "after": [
-      "g",
-      "t"
-    ],
-  },
-  {
-    // old K
-    "before": [
-      "leader",
-      "K"
-    ],
-    "after": [
-      "K"
-    ],
-  },
-  {
-    // new H
-    "before": [
-      "H"
-    ],
-    "after": [
-      "^"
-    ],
-  },
-  {
-    // old H
-    "before": [
-      "leader",
-      "H"
-    ],
-    "after": [
-      "H"
-    ],
-  },
-  {
-    // new L
-    "before": [
-      "L"
-    ],
-    "after": [
-      "$"
-    ],
-  },
-  {
-    // old L
-    "before": [
-      "leader",
-      "L"
-    ],
-    "after": [
-      "L"
-    ],
-  }
-],
-//递归这个配置选项是递归的，意味着按键绑定会在所有普通模式中生效，包括嵌套的内部模式（例如插入模式）。这样可以确保按键绑定在所有情况下都能正确触发。
-"vim.normalModeKeyBindings": [],
-"vim.leader": "<space>",
-"vim.handleKeys": {
-  "<C-a>": false,
-  "<C-f>": false,
-  // "<C-n>": false,
-  "<C-c>": false,
-  "<C-v>": false,
-  "<C-p>": false,
-}
 }
