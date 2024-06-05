@@ -1,0 +1,170 @@
+// 将键绑定放在此文件中以覆盖默认值auto[]
+[
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "editor.action.transformToLowercase"
+    },
+    {
+        "key": "tab",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "shift+tab",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "tab",
+        "command": "selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "shift+tab",
+        "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "alt+u",
+        "command": "editor.action.transformToTitlecase"
+    },
+    {
+        "key": "alt+i",
+        "command": "editor.action.transformToCamelcase"
+    },
+    {
+        "key": "alt+y",
+        "command": "editor.action.transformToSnakecase"
+    },
+    //配和vim插件
+    {
+        "key": "escape",
+        "command": "toggleVim",
+        "when": "editorTextFocus && vim.mode == 'Disabled' || editorTextFocus && vim.mode == 'Normal'"
+    },
+    // shortcut: ctrl+j/k
+    // for choose suggestion
+    // ctrl+j/k 选择提示候选
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // shortcut: ctrl+j/k
+    // for quick open choose
+    // ctrl+j/k 选择quickopen文件列表
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    // --- 资源管理器中对文件或目录的操作
+    // 新建文件
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 新建目录
+    {
+        "key": "shift+a",
+        "command": "explorer.newFolder",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 刷新资源管理器
+    // {
+    //     "key": "r",
+    //     "command": "workbench.files.action.refreshFilesExplorer",
+    //     "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    // },
+    // 重命名文件或目录
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 删除文件或目录
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+    },
+    // 剪切文件或目录
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // 复制文件或目录
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    // 粘贴文件或目录
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    // Vim 终端
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+        "comment": "当终端获得焦点，并且终端已被创建且不是终端编辑器焦点时，或者终端获得焦点且支持终端进程且不是终端编辑器焦点时，按下 Ctrl+Shift+J 将聚焦到下一个终端。"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus",
+        "comment": "当终端获得焦点，并且终端已被创建且不是终端编辑器焦点时，或者终端获得焦点且支持终端进程且不是终端编辑器焦点时，按下 Ctrl+Shift+K 将聚焦到上一个终端。"
+    },
+    { //这个没研究明白
+        "key": "/",
+        "command": "list.find",
+        "when": "listFocus && listSupportsFind && !inputFocus",
+        "comment": "当列表获得焦点，列表支持查找功能，并且输入框没有获得焦点时，按下 / 将激活列表查找功能。"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.terminal.scrollDown",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.terminal.scrollUp",
+        "when": "terminalFocus"
+    },
+    //增加光标聚集快捷
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+]
